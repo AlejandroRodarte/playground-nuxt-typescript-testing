@@ -2,7 +2,7 @@
   <div class="container">
     <div>
       <Logo />
-      <h1 class="title">nuxt-ts-playground</h1>
+      <h1 class="title">nuxt-ts-playground-edited</h1>
       <div class="links">
         <a
           href="https://nuxtjs.org/"
