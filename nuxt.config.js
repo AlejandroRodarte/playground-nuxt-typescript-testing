@@ -44,6 +44,8 @@ module.exports = {
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
 
+  dev: process.env.NODE_ENV !== 'production',
+
   server: {
     host: process.env.HOST || 'localhost',
     port: process.env.PORT || 3000,
