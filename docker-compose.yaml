@@ -1,4 +1,4 @@
-version: "3"
+version: "3.4"
 
 services:
   nuxt:
@@ -8,5 +8,5 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./src:/node/app/src
-      - ./nuxt.config.js:/node/app/nuxt.config.js
+      - .:/node/app
+      - /node/app/node_modules

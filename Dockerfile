@@ -49,8 +49,6 @@ ENV NODE_ENV development
 
 WORKDIR /node/app
 
-USER node
-
 CMD [ "nuxt-ts" ]
 
 
