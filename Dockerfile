@@ -73,8 +73,8 @@ LABEL org.opencontainers.image.title="Production image for this Nuxt application
 
 LABEL com.rodarte.playground-nuxt-typescript-testing.stage=prod
 
-COPY --chown=node:node --from=build /app/.nuxt /app/nuxt.config.js ./src/
+COPY --chown=node:node --from=build /app/.nuxt /app/nuxt.config.js /app/server ./
 
 USER node
 
-CMD [ "nuxt-ts", "start" ]
+CMD [ "node", "server/index.js" ]

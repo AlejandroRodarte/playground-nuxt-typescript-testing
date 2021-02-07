@@ -1,4 +1,5 @@
-export default {
+// eslint-disable-next-line nuxt/no-cjs-in-config
+module.exports = {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'nuxt-ts-playground',
