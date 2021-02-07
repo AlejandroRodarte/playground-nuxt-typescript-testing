@@ -52,13 +52,36 @@ WORKDIR /node/app
 CMD [ "nuxt-ts" ]
 
 
-FROM base-dev as build
+FROM base-dev as source
+
+LABEL org.opencontainers.image.title="Source image for this Nuxt application"
+
+LABEL com.rodarte.playground-nuxt-typescript-testing.stage=source
+
+COPY --chown=node:node . .
+
+
+FROM source as test
+
+LABEL org.opencontainers.image.title="Test image for this Nuxt application"
+
+LABEL com.rodarte.playground-nuxt-typescript-testing.stage=test
+
+ENV NODE_ENV test
+
+CMD [ "jest" ]
+
+
+FROM test as audit
+
+CMD [ "npm", "audit" ]
+
+
+FROM source as build
 
 LABEL org.opencontainers.image.title="Build image for this Nuxt application"
 
 LABEL com.rodarte.playground-nuxt-typescript-testing.stage=build
-
-COPY --chown=node:node . .
 
 RUN nuxt-ts build
 
