@@ -11,6 +11,7 @@ LABEL com.rodarte.playground-nuxt-typescript-testing.stage=base
 
 ENV NODE_ENV production
 ENV PORT 3000
+ENV HOST 0.0.0.0
 
 WORKDIR /app
 
