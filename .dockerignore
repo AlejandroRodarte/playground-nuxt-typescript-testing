@@ -1,0 +1,9 @@
+.github/
+.nuxt/
+node_modules/
+.dockerignore
+.gitignore
+.editorconfig
+commitlint.config.js
+README.md
+Dockerfile
