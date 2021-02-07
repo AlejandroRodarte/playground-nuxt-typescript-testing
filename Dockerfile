@@ -13,7 +13,7 @@ ENV NODE_ENV production
 ENV PORT 3000
 ENV HOST 0.0.0.0
 
-WORKDIR /app
+WORKDIR /node
 
 RUN chown -R node:node .
 
@@ -32,7 +32,7 @@ LABEL org.opencontainers.image.title="Base development image for this Nuxt appli
 
 LABEL com.rodarte.playground-nuxt-typescript-testing.stage=base-dev
 
-ENV PATH /app/node_modules/.bin:$PATH
+ENV PATH /node/node_modules/.bin:$PATH
 
 RUN npm config list \
     && npm ci --also=development \
@@ -46,6 +46,8 @@ LABEL org.opencontainers.image.title="Development image for this Nuxt applicatio
 LABEL com.rodarte.playground-nuxt-typescript-testing.stage=dev
 
 ENV NODE_ENV development
+
+WORKDIR /node/app
 
 USER node
 
@@ -74,9 +76,9 @@ LABEL org.opencontainers.image.title="Production image for this Nuxt application
 
 LABEL com.rodarte.playground-nuxt-typescript-testing.stage=prod
 
-COPY --chown=node:node --from=build /app/.nuxt ./.nuxt
-COPY --chown=node:node --from=build /app/nuxt.config.js ./
-COPY --chown=node:node --from=build /app/server ./server
+COPY --chown=node:node --from=build /node/.nuxt ./.nuxt
+COPY --chown=node:node --from=build /node/nuxt.config.js ./
+COPY --chown=node:node --from=build /node/server ./server
 
 USER node
 

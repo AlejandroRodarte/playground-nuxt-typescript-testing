@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  nuxt:
+    build:
+      context: .
+      target: dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/node/app/src
+      - ./nuxt.config.js:/node/app/nuxt.config.js
