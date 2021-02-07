@@ -73,7 +73,9 @@ LABEL org.opencontainers.image.title="Production image for this Nuxt application
 
 LABEL com.rodarte.playground-nuxt-typescript-testing.stage=prod
 
-COPY --chown=node:node --from=build /app/.nuxt /app/nuxt.config.js /app/server ./
+COPY --chown=node:node --from=build /app/.nuxt ./.nuxt
+COPY --chown=node:node --from=build /app/nuxt.config.js ./
+COPY --chown=node:node --from=build /app/server ./server
 
 USER node
 
