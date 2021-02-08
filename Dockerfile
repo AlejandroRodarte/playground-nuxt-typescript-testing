@@ -74,6 +74,10 @@ CMD [ "jest" ]
 
 FROM test as audit
 
+LABEL org.opencontainers.image.title="Audit image for this Nuxt application"
+
+LABEL com.rodarte.playground-nuxt-typescript-testing.stage=audit
+
 CMD [ "npm", "audit" ]
 
 
