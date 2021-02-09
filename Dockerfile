@@ -41,6 +41,11 @@ RUN npm config list \
 
 FROM base-dev as dev
 
+ARG CREATED_DATE=not-set
+ARG SOURCE_COMMIT=not-set
+
+LABEL org.opencontainers.image.created=$CREATED_DATE
+LABEL org.opencontainers.image.revision=$SOURCE_COMMIT
 LABEL org.opencontainers.image.title="Development image for this Nuxt application"
 
 LABEL com.rodarte.playground-nuxt-typescript-testing.stage=dev
@@ -63,6 +68,11 @@ COPY --chown=node:node . .
 
 FROM source as test
 
+ARG CREATED_DATE=not-set
+ARG SOURCE_COMMIT=not-set
+
+LABEL org.opencontainers.image.created=$CREATED_DATE
+LABEL org.opencontainers.image.revision=$SOURCE_COMMIT
 LABEL org.opencontainers.image.title="Test image for this Nuxt application"
 
 LABEL com.rodarte.playground-nuxt-typescript-testing.stage=test
@@ -74,6 +84,11 @@ CMD [ "jest" ]
 
 FROM test as audit
 
+ARG CREATED_DATE=not-set
+ARG SOURCE_COMMIT=not-set
+
+LABEL org.opencontainers.image.created=$CREATED_DATE
+LABEL org.opencontainers.image.revision=$SOURCE_COMMIT
 LABEL org.opencontainers.image.title="Audit image for this Nuxt application"
 
 LABEL com.rodarte.playground-nuxt-typescript-testing.stage=audit
