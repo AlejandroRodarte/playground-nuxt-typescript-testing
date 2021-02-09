@@ -2,9 +2,7 @@ version: "3.4"
 
 services:
   nuxt:
-    build:
-      context: .
-      target: dev
+    image: rodarte/playground-nuxt-typescript-testing:dev
     ports:
       - "3000:3000"
     volumes:

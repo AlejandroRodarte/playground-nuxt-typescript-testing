@@ -52,4 +52,10 @@ module.exports = {
   },
 
   srcDir: 'src/',
+
+  watchers: {
+    webpack: {
+      poll: true,
+    },
+  },
 }
