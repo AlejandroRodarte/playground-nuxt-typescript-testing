@@ -20,7 +20,7 @@ RUN chown -R node:node .
 COPY --chown=node:node package.json package-lock.json* ./
 
 RUN npm config list \
-    && npm ci --only=production \
+    && npm ci --only=production --timeout=9999999 \
     && npm cache clean --force
 
 EXPOSE 3000
@@ -35,7 +35,7 @@ LABEL com.rodarte.playground-nuxt-typescript-testing.stage=base-dev
 ENV PATH /node/node_modules/.bin:$PATH
 
 RUN npm config list \
-    && npm ci --also=development \
+    && npm ci --also=development --timeout=9999999 \
     && npm cache clean --force
 
 
