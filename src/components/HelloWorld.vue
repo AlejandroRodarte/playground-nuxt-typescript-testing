@@ -6,6 +6,21 @@
 import Vue from 'vue'
 
 export default Vue.extend({
+  props: {
+    required: {
+      type: Number,
+      required: true,
+    },
+    optional: {
+      type: Number,
+      default: 30,
+    },
+  },
+  computed: {
+    computedOptional() {
+      return this.optional
+    },
+  },
   mounted() {
     this.testFunction('hello')
   },
